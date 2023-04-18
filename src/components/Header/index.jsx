@@ -1,5 +1,6 @@
 import Link from "next/link";
 import './Header.module.css';
+import CartIcon from "../CartIcon";
 
 const Header = () => {
     return (
@@ -12,6 +13,7 @@ const Header = () => {
                 <li><Link href='/loja'>Loja</Link></li>
             </ul>
             <Link href='/shop'></Link>
+            <CartIcon />
         </nav>
     )
 }
