@@ -10,6 +10,8 @@ const CartIcon = () => {
                 height={28}
                 width={28}
                 alt="" />
+                
+            <span className="cart-count">5</span>
         </div>
     )
 }
