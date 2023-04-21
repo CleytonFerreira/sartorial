@@ -7,13 +7,13 @@ const MainSection = () => {
         <section className="main-section">
             <div className="container">
                 <div className="main-img-container">
-                    <Image />
+                    <Image src=""/>
                 </div>
                 
                 <div className="text">
                     <h2>Slogan</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, asperiores sapiente nostrum explicabo veritatis, harum quisquam magni obcaecati labore velit sint fuga magnam ad amet laudantium praesentium.</p>
-                    <button>COMPRAR</button>
+                    <button>CALL TO ACTION</button>
                 </div>
             </div>
         </section>
