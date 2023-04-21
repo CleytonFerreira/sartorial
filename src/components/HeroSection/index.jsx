@@ -4,7 +4,7 @@ import './HeroSection.module.css';
 
 const HeroSection = () => {
     return (
-        <section>
+        <section className="hero-section">
             <h1>Título</h1>
             <button className="cta">CALL TO ACTION</button>
         </section>
