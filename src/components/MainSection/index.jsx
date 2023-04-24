@@ -7,7 +7,7 @@ const MainSection = () => {
         <section className="main-section">
             <div className="container">
                 <div className="main-img-container">
-                    <Image src=""/>
+                    <Image src="" alt=""/>
                 </div>
                 
                 <div className="text">
