@@ -1,5 +1,4 @@
 import {useContext} from 'react';
-import './FeaturedCollection.module.css';
 import { ProductsContext } from '@/context/ProductsContext';
 import FeaturedProduct from '../shared/FeaturedProduct';
 
