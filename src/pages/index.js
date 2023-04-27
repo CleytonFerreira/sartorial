@@ -6,7 +6,6 @@ import ProductsContextProvider from '@/context/ProductsContext'
 import HeroSection from '@/components/HeroSection'
 import MainSection from '@/components/MainSection'
 import FeaturedCollection from '@/components/FeaturedCollection'
-import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +15,6 @@ export default function Home() {
       <HeroSection />
       <MainSection />
       <FeaturedCollection />
-      <Footer />
     </ProductsContextProvider>
   )
 }
