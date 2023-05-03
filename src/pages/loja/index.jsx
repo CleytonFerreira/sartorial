@@ -1,14 +1,20 @@
 import { useContext } from 'react';
 import { ProductsContext } from '@/context/ProductsContext';
+import Link from 'next/link';
 import Layout from '@/components/shared/Layout';
 import FeaturedProduct from '@/components/shared/FeaturedProduct';
 import './ShopPage.module.css';
 
 
+
 const ShopPage = () => {
     const { products } = useContext(ProductsContext)
     const allProducts = products.map(product => (
-        <FeaturedProduct {...product} key={product.id} />
+        <div key={product.id}>
+            <Link href={`produto/${product.id}`}>
+                <FeaturedProduct {...product} />
+            </Link>
+        </div>
     ))
 
     return (
