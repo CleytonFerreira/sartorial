@@ -1,5 +1,3 @@
-
-
 const Layout = ({ children }) => {
     return (
         <main>
@@ -8,4 +6,4 @@ const Layout = ({ children }) => {
     )
 }
 
-export default Layout
+export default Layout;
