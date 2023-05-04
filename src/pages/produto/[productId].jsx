@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ProductsContext } from '@/context/ProductsContext';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import './SingleProduct.module.css';
 
 const SingleProduct = () => {
@@ -8,15 +9,17 @@ const SingleProduct = () => {
     const router = useRouter();
     const productId = router.query.productId;
 
-    const item = products.find(product => product.id === parseInt(productId));
+    const item = products.find(product => product.id === Number(productId));
 
     if (item) {
         return (
             <div>
+                <Image src={item.imageUrl} alt={item.title} width="300" height="300"/>
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
-                <p>Price: ${item.price}</p>
-                {/* <img src={product.imageUrl} alt={product.title} /> */}
+                <p>{item.price}R$</p>
+                <button>ADICIONAR AO CARRINHO</button>
+                <button>COMPRAR AGORA</button>
             </div>
         )
     }

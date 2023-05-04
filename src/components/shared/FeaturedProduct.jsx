@@ -16,7 +16,7 @@ const FeaturedProduct = (product) => {
                 </div>
                 <div className="name-price">
                     <h3>{title}</h3>
-                    <p>{price} R$</p>
+                    <p>{price}R$</p>
                 </div>
             </Link>
             <button>ADICIONAR AO CARRINHO</button>
