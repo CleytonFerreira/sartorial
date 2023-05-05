@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CartContext } from "@/context/CartContext";
 import './CartIcon.module.css';
 
 const CartIcon = () => {
+    const { itemCount } = useContext(CartContext)
+
     return (
         <div className="cart">
             <Image
@@ -10,8 +14,9 @@ const CartIcon = () => {
                 height={28}
                 width={28}
                 alt="" />
-                
-            <span className="cart-count">5</span>
+            {
+                itemCount > 0 ? <span className="cart-count">{itemCount}</span> : null
+            }
         </div>
     )
 }
