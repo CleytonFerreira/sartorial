@@ -1,9 +1,14 @@
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 import Link from 'next/link';
-import './FeaturedProduct.module.css';
 import Image from 'next/image';
+import { isInCart } from '@/lib/helpers';
+import './FeaturedProduct.module.css';
 
-const FeaturedProduct = (product) => {
-    const { title, imageUrl, price } = product
+const FeaturedProduct = (props) => {
+    const { title, imageUrl, price, id, description } = props
+    const product = { title, imageUrl, price, id, description }
+    const { addProduct, cartItems } = useContext(CartContext)
 
     return (
         <div className="featured-product">
@@ -17,9 +22,16 @@ const FeaturedProduct = (product) => {
                 <div className="name-price">
                     <h3>{title}</h3>
                     <p>{price}R$</p>
+                    {
+                        !isInCart(product, cartItems) &&
+                        <button onClick={() => addProduct(product)}>ADICIONAR AO CARRINHO</button>
+                    }
+                    {
+                        isInCart(product, cartItems) &&
+                        <button onClick={() => {}}>ADICIONAR MAIS</button>
+                    }
                 </div>
             </Link>
-            <button>ADICIONAR AO CARRINHO</button>
         </div>
     )
 }
