@@ -19,19 +19,19 @@ const FeaturedProduct = (props) => {
                         width={100}
                         alt="produto" />
                 </div>
-                <div className="name-price">
-                    <h3>{title}</h3>
-                    <p>{price}R$</p>
-                    {
-                        !isInCart(product, cartItems) &&
-                        <button onClick={() => addProduct(product)}>ADICIONAR AO CARRINHO</button>
-                    }
-                    {
-                        isInCart(product, cartItems) &&
-                        <button onClick={() => {}}>ADICIONAR MAIS</button>
-                    }
-                </div>
             </Link>
+            <div className="name-price">
+                <h3>{title}</h3>
+                <p>{price}R$</p>
+                {
+                    !isInCart(product, cartItems) &&
+                    <button onClick={() => addProduct(product)}>ADICIONAR AO CARRINHO</button>
+                }
+                {
+                    isInCart(product, cartItems) &&
+                    <button onClick={() => { }}>ADICIONAR MAIS</button>
+                }
+            </div>
         </div>
     )
 }

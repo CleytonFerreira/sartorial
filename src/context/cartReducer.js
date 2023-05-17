@@ -6,7 +6,7 @@ export const sumItems = (cartItems) => {
 }
 
 const cartReducer = (state, action) => {
-    switch (action, type) {
+    switch (action.type) {
         case 'ADD_ITEM':
             //verifica se o item já está no carrinho
             if (!state.cartItems.find(item => item.id === action.payload.id)) {
