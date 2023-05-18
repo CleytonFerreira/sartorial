@@ -1,30 +1,40 @@
 import { useContext } from 'react';
 import { ProductsContext } from '@/context/ProductsContext';
+import { CartContext } from '@/context/CartContext';
 import { useRouter } from 'next/router';
+import { isInCart } from '@/lib/helpers';
 import Image from 'next/image';
 import './SingleProduct.module.css';
 
 const SingleProduct = () => {
     const { products } = useContext(ProductsContext)
-    const router = useRouter();
-    const productId = router.query.productId;
+    const { addProduct, cartItems } = useContext(CartContext)
+    const router = useRouter()
+    const productId = router.query.productId
 
-    const item = products.find(product => product.id === Number(productId));
+    const item = products.find(product => product.id === Number(productId))
+    const itemInCart = isInCart(item, cartItems)
 
     if (item) {
         return (
             <div>
-                <Image src={item.imageUrl} alt={item.title} width="300" height="300"/>
+                <Image src={item.imageUrl} alt={item.title} width="300" height="300" />
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
                 <p>{item.price}R$</p>
-                <button>ADICIONAR AO CARRINHO</button>
-                <button>COMPRAR AGORA</button>
+                {
+                    !itemInCart &&
+                    <button onClick={() => addProduct(item)}>ADICIONAR AO CARRINHO</button>
+                }
+                {
+                    itemInCart &&
+                    <button onClick={() => { }}>ADICIONAR MAIS</button>
+                }
             </div>
         )
     }
     else {
-        return <p>Produto não encontrado</p>;
+        return <p>Produto não encontrado</p>
     }
 }
 
