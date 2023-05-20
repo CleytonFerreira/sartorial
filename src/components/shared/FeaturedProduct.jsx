@@ -8,7 +8,8 @@ import './FeaturedProduct.module.css';
 const FeaturedProduct = (props) => {
     const { title, imageUrl, price, id, description } = props
     const product = { title, imageUrl, price, id, description }
-    const { addProduct, cartItems } = useContext(CartContext)
+    const { addProduct, cartItems, increase } = useContext(CartContext)
+    const itemInCart = isInCart(product, cartItems)
 
     return (
         <div className="featured-product">
@@ -24,12 +25,12 @@ const FeaturedProduct = (props) => {
                 <h3>{title}</h3>
                 <p>{price}R$</p>
                 {
-                    !isInCart(product, cartItems) &&
+                    !itemInCart &&
                     <button onClick={() => addProduct(product)}>ADICIONAR AO CARRINHO</button>
                 }
                 {
-                    isInCart(product, cartItems) &&
-                    <button onClick={() => { }}>ADICIONAR MAIS</button>
+                    itemInCart &&
+                    <button onClick={() => increase(product)}>ADICIONAR MAIS</button>
                 }
             </div>
         </div>

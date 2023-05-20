@@ -8,7 +8,7 @@ import './SingleProduct.module.css';
 
 const SingleProduct = () => {
     const { products } = useContext(ProductsContext)
-    const { addProduct, cartItems } = useContext(CartContext)
+    const { addProduct, cartItems, increase } = useContext(CartContext)
     const router = useRouter()
     const productId = router.query.productId
 
@@ -28,7 +28,7 @@ const SingleProduct = () => {
                 }
                 {
                     itemInCart &&
-                    <button onClick={() => { }}>ADICIONAR MAIS</button>
+                    <button onClick={() => increase(item)}>ADICIONAR MAIS</button>
                 }
             </div>
         )
