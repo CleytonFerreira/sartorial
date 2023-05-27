@@ -10,6 +10,7 @@ const CartIcon = () => {
 
     return (
         <div className="cart">
+            <Link href="carrinho">
             <Image
                 src="/shopping_bag.svg"
                 height={28}
@@ -18,6 +19,7 @@ const CartIcon = () => {
             {
                 itemCount > 0 ? <span className="cart-count">{itemCount}</span> : null
             }
+            </Link>
         </div>
     )
 }

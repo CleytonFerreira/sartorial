@@ -4,15 +4,15 @@ const CartItem = (product) => {
     const { title, imageUrl, price, quantity } = product
 
     return (
-        <div>
-            <div>
+        <div className="cart_item">
+            <div className="item_image">
                 <Image
                     src={imageUrl}
-                    height={16}
-                    width={16}
+                    height={80}
+                    width={80}
                     alt="produto" />
             </div>
-            <div className="name-price">
+            <div className="name_price">
                 <h4>{title}</h4>
                 <p>{price} R$</p>
             </div>
@@ -20,8 +20,8 @@ const CartItem = (product) => {
                 <p>{`Quantidade: ${quantity}`}</p>
             </div>
 
-            <div className="btns-container">
-                <button>
+            <div className="btns_container">
+                <button className="btn_increase">
                     <Image
                         src="/plus_icon.svg"
                         height={16}
@@ -30,21 +30,23 @@ const CartItem = (product) => {
                 </button>
                 {
                     quantity === 1 &&
-                    <button>
+                    <button className="btn_trash">
                         <Image
                             src="/trash_icon.svg"
-                            height={20}
-                            width={20}
+                            height={16}
+                            width={16}
                             alt="" />
                     </button>
                 }
                 {
                     quantity > 1 &&
-                    <Image
-                        src="/minus_icon.svg"
-                        height={16}
-                        width={16}
-                        alt="" />
+                    <button className="btn_decrease">
+                        <Image
+                            src="/minus_icon.svg"
+                            height={16}
+                            width={16}
+                            alt="" />
+                    </button>
                 }
             </div>
         </div>
