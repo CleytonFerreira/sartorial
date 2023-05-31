@@ -5,7 +5,7 @@ const Total = ({ itemCount, total }) => {
         <div className="total_container">
             <div className="total">
                 <p>Total do itens: {itemCount}</p>
-                <p>{`Preço total: R$ ${total}`}</p>
+                <p>{`Preço total: ${total} R$`}</p>
 
             </div>
             <div className="checkout">
