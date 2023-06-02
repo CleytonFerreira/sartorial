@@ -53,6 +53,14 @@ const cartReducer = (state, action) => {
                 ...sumItems(updatedCartItems)
             };
 
+        case 'REMOVE_ITEM':
+            const newCartItems = state.cartItems.filter(item => item.id !== action.payload.id)
+            return {
+                ...state,
+                cartItems: [...newCartItems],
+                ...sumItems(newCartItems)
+            }
+
         default:
             return state;
     }

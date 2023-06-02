@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const CartItem = (props) => {
-    const { title, imageUrl, price, quantity, id, description, increase, decrease } = props
+    const { title, imageUrl, price, quantity, id, description, increase, decrease, removeProduct } = props
     const product = { title, imageUrl, price, quantity, id, description }
 
     return (
@@ -31,7 +31,7 @@ const CartItem = (props) => {
                 </button>
                 {
                     quantity === 1 &&
-                    <button className="btn_trash">
+                    <button className="btn_trash" onClick={() => removeProduct(product)}>
                         <Image
                             src="/trash_icon.svg"
                             height={16}
