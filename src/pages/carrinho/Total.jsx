@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Total = ({ itemCount, total }) => {
+const Total = ({ itemCount, total, clearCart }) => {
     return (
         <div className="total_container">
             <div className="total">
@@ -10,7 +10,7 @@ const Total = ({ itemCount, total }) => {
             </div>
             <div className="checkout">
                 <button>IR PARA O CHECKOUT</button>
-                <button>ESVAZIAR CARRINHO</button>
+                <button onClick={() => clearCart()}>ESVAZIAR CARRINHO</button>
             </div>
         </div>
     )

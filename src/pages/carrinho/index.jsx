@@ -7,8 +7,8 @@ import './CartPage.module.css';
 
 
 const CartPage = () => {
-    const { cartItems, itemCount, total, increase, decrease, removeProduct } = useContext(CartContext)
-    const funcs = {increase, decrease, removeProduct}
+    const { cartItems, itemCount, total, increase, decrease, removeProduct, clearCart } = useContext(CartContext)
+    const funcs = { increase, decrease, removeProduct }
 
     return (
         <Layout>
@@ -21,11 +21,11 @@ const CartPage = () => {
                             <div className="cart_page">
                                 <div className="cart_item_container">
                                     {
-                                        cartItems.map(item => <CartItem {...item} key={item.id} {...funcs}/>)
+                                        cartItems.map(item => <CartItem {...item} key={item.id} {...funcs} />)
                                     }
                                 </div>
                             </div>
-                            <Total itemCount={itemCount} total={total} />
+                            <Total itemCount={itemCount} total={total} clearCart={clearCart} />
                         </>
 
                 }
