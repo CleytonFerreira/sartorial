@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CartContext } from "@/context/CartContext";
@@ -6,14 +6,14 @@ import './CartIcon.module.css';
 
 const CartIcon = () => {
     const { itemCount } = useContext(CartContext)
-    const [initialItemCount, setInitialItemCount] = useState(itemCount)
+    const [cartState, setCartState] = useState(itemCount)
 
-    useEffect(() => {
-        setInitialItemCount(itemCount)
+    useEffect(()=> {
+        setCartState(itemCount)
     }, [itemCount])
 
     return (
-        <div>
+        <div className="cart">
             <Link href="carrinho">
                 <Image
                     src="/shopping_bag.svg"
@@ -22,7 +22,7 @@ const CartIcon = () => {
                     alt="" />
             </Link>
             {
-                initialItemCount > 0 ? <span>{initialItemCount}</span> : null
+                itemCount > 0 ? <span>{cartState}</span> : null
             }
         </div>
     )

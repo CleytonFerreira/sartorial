@@ -27,7 +27,6 @@ const CartPage = () => {
                             </div>
                             <Total itemCount={itemCount} total={total} clearCart={clearCart} />
                         </>
-
                 }
             </>
         </Layout>
