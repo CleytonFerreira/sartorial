@@ -1,6 +1,6 @@
 import Link from "next/link";
 import './Header.module.css';
-import CartIcon from "../CartIcon";
+import CartIcon from "../Cart/CartIcon";
 
 const Header = () => {
     return (

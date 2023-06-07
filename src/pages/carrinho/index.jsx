@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
 import Layout from '@/components/shared/Layout';
-import CartItem from './CartItem';
-import Total from './Total';
+import CartItem from '../../components/Cart/CartItem';
+import Total from '../../components/Cart/Total';
 import './CartPage.module.css';
 
 
