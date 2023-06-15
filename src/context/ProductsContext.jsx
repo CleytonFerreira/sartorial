@@ -1,9 +1,10 @@
 import { createContext, useState } from "react";
+import PropTypes from 'prop-types'
 import SHOP_DATA from '../shop';
 
-export const ProductsContext = createContext();
+const ProductsContext = createContext();
 
-const ProductsContextProvider = (children) => {
+const ProductsContextProvider = ({ children }) => {
     const [products] = useState(SHOP_DATA)
 
     return (
@@ -13,4 +14,9 @@ const ProductsContextProvider = (children) => {
     )
 };
 
+ProductsContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export { ProductsContext };
 export default ProductsContextProvider;
