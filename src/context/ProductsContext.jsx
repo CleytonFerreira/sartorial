@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import SHOP_DATA from '../shop';
 
 const ProductsContext = createContext();

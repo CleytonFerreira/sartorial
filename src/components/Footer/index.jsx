@@ -4,7 +4,7 @@ const Footer = () => {
     const year = new Date().getFullYear()
 
     return(
-        <div className='footer'>
+        <div className={footerStyle.footer}>
             {year} - Criado por Cleyton Ferreira
         </div>
     )
