@@ -1,10 +1,14 @@
 import HeroSection from "../../components/HeroSection";
-import homeStyle from './HomePage.module.css';
+import MainSection from "../../components/MainSection";
+import FeaturedCollection from "../../components/FeaturedCollection"
+
 
 const HomePage = () => {
     return (
         <>
-            <HeroSection className={homeStyle.home} />
+            <HeroSection />
+            <MainSection />
+            <FeaturedCollection/>
         </>
     )
 }
