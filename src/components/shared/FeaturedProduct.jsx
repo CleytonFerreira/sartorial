@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import {isInCart} from '../../helpers';
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const FeaturedProduct = (props) => {
     const { title, imageUrl, price, id, description } = props
@@ -10,11 +11,11 @@ const FeaturedProduct = (props) => {
 
     return (
         <div className="featured_product">
-            <a href={`produto/${product.id}`}>
+            <Link to={`produto/${product.id}`}>
             <div className="featured-image">
                     <img src={imageUrl} alt="produto" />
                 </div>
-            </a>
+            </Link>
             <div className="name-price">
                 <h3>{title}</h3>
                 <p>{price}R$</p>
