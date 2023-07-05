@@ -30,7 +30,6 @@ const SingleProduct = () => {
 
     return (
         <Layout>
-
             <img src={imageUrl} alt={product.title} />
             <h3>{title}</h3>
             <p>{price}</p>
