@@ -1,7 +1,8 @@
-import { useContext } from "react";
-import {isInCart} from '../../helpers';
-import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { isInCart } from '../../helpers';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const FeaturedProduct = (props) => {
     const { title, imageUrl, price, id, description } = props
@@ -12,7 +13,7 @@ const FeaturedProduct = (props) => {
     return (
         <div className="featured_product">
             <Link to={`produto/${product.id}`}>
-            <div className="featured-image">
+                <div className="featured-image">
                     <img src={imageUrl} alt="produto" />
                 </div>
             </Link>
@@ -32,5 +33,12 @@ const FeaturedProduct = (props) => {
     )
 }
 
+FeaturedProduct.propTypes = {
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    price: PropTypes.number,
+    id: PropTypes.number,
+    description: PropTypes.string
+}
 
 export default FeaturedProduct;

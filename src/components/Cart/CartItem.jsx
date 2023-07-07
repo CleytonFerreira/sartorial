@@ -1,6 +1,7 @@
-import plusIcon from '../../assets/plus_icon.svg';
-import minusIcon from '../../assets/minus_icon.svg';
-import trashIcon from '../../assets/trash_icon.svg';
+import PropTypes from 'prop-types';
+import plusIcon from '../../assets/icons/plus_icon.svg';
+import minusIcon from '../../assets/icons/minus_icon.svg';
+import trashIcon from '../../assets/icons/trash_icon.svg';
 
 const CartItem = (props) => {
     const { title, imageUrl, price, quantity, id, description, increase, decrease, removeProduct } = props
@@ -38,6 +39,18 @@ const CartItem = (props) => {
             </div>
         </div>
     )
+}
+
+CartItem.propTypes = {
+    title: PropTypes.string, 
+    imageUrl: PropTypes.string, 
+    price: PropTypes.number, 
+    quantity: PropTypes.number, 
+    id: PropTypes.number, 
+    description: PropTypes.string, 
+    increase: PropTypes.func, 
+    decrease: PropTypes.func, 
+    removeProduct: PropTypes.func
 }
 
 export default CartItem;

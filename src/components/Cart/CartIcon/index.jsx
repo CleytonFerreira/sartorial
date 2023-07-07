@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../../context/CartContext';
 import cartIconStyle from './CartIcon.module.css';
+import cartImg from '../../../assets/icons/cart_img.svg';
 
 const CartIcon = () => {
     const { itemCount } = useContext(CartContext)
@@ -13,8 +14,8 @@ const CartIcon = () => {
 
     return (
         <div className={cartIconStyle.cart_icon}>
-            <Link to="carrinho">
-                {/* <img src="/shopping_bag.svg" alt="" /> */}
+            <Link to="/carrinho">
+                <img src={cartImg} alt="carrinho" />
             </Link>
             {
                 itemCount > 0 ? <span>{cartState}</span> : null

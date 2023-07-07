@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Total = ({ itemCount, total, clearCart }) => {
     return (
         <div className="total_container">
@@ -12,6 +14,12 @@ const Total = ({ itemCount, total, clearCart }) => {
             </div>
         </div>
     )
+}
+
+Total.propTypes = {
+    itemCount: PropTypes.number,
+    total: PropTypes.number,
+    clearCart: PropTypes.func
 }
 
 export default Total

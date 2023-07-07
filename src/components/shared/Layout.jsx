@@ -1,11 +1,13 @@
+import Header from "../Header";
 import Footer from "../Footer";
 import PropTypes from 'prop-types';
 
-const Layout = ({children}) => {
-    return(
+const Layout = ({ children }) => {
+    return (
         <>
-        {children}
-        <Footer/>
+            <Header />
+            {children}
+            <Footer />
         </>
     )
 }

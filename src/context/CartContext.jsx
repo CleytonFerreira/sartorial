@@ -1,5 +1,6 @@
 import { createContext, useReducer } from 'react';
 import cartReducer, { sumItems } from './cartReducer';
+import PropTypes from 'prop-types';
 
 export const CartContext = createContext();
 
@@ -32,6 +33,10 @@ const CartContextProvider = ({ children }) => {
       }
     </CartContext.Provider>
   );
+}
+
+CartContextProvider.propTypes = {
+    children: PropTypes.node
 }
 
 export default CartContextProvider;
