@@ -7,6 +7,6 @@ const HeroSection = () => {
             <button className="cta">CALL TO ACTION</button>
         </section>
     )
-}
+};
 
 export default HeroSection;

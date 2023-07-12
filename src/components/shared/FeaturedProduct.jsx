@@ -12,7 +12,7 @@ const FeaturedProduct = (props) => {
 
     return (
         <div className="featured_product">
-            <Link to={`produto/${product.id}`}>
+            <Link to={`/loja/produto/${product.id}`}>
                 <div className="featured-image">
                     <img src={imageUrl} alt="produto" />
                 </div>
@@ -31,7 +31,7 @@ const FeaturedProduct = (props) => {
             </div>
         </div>
     )
-}
+};
 
 FeaturedProduct.propTypes = {
     title: PropTypes.string,
@@ -39,6 +39,6 @@ FeaturedProduct.propTypes = {
     price: PropTypes.number,
     id: PropTypes.number,
     description: PropTypes.string
-}
+};
 
 export default FeaturedProduct;

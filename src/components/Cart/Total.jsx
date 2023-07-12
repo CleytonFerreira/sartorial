@@ -14,12 +14,12 @@ const Total = ({ itemCount, total, clearCart }) => {
             </div>
         </div>
     )
-}
+};
 
 Total.propTypes = {
     itemCount: PropTypes.number,
     total: PropTypes.number,
     clearCart: PropTypes.func
-}
+};
 
-export default Total
+export default Total;

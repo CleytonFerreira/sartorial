@@ -15,6 +15,6 @@ const Header = () => {
             <CartIcon />
         </nav>
     )
-}
+};
 
 export default Header;

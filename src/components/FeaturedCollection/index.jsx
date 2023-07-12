@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { ProductsContext } from "../../context/ProductsContext";
-import FeaturedProduct from "../shared/FeaturedProduct";
+import { useContext } from 'react';
+import { ProductsContext } from '../../context/ProductsContext';
+import FeaturedProduct from '../shared/FeaturedProduct';
 
 const FeaturedCollection = () => {
     const { products } = useContext(ProductsContext);
@@ -16,6 +16,6 @@ const FeaturedCollection = () => {
             </div>
         </div>
     )
-}
+};
 
 export default FeaturedCollection;

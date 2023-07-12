@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
@@ -18,4 +17,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

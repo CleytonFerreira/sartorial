@@ -8,6 +8,6 @@ const Footer = () => {
             {year} - Criado por Cleyton Ferreira
         </div>
     )
-}
+};
 
 export default Footer;

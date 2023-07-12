@@ -11,23 +11,21 @@ const CartPage = () => {
 
     return (
         <Layout>
-            <>
-                <h1>Carrinho</h1>
-                {
-                    cartItems.length === 0 ?
-                        <div className="empty_cart">Seu carrinho está vazio</div> :
-                        <>
-                            <div className="cart_page">
-                                <div className="cart_item_container">
-                                    {
-                                        cartItems.map(item => <CartItem {...item} key={item.id} {...funcs} />)
-                                    }
-                                </div>
+            <h1>Carrinho</h1>
+            {
+                cartItems.length === 0 ?
+                    <div className="empty_cart">Seu carrinho está vazio</div> :
+                    <>
+                        <div className="cart_page">
+                            <div className="cart_item_container">
+                                {
+                                    cartItems.map(item => <CartItem {...item} key={item.id} {...funcs} />)
+                                }
                             </div>
-                            <Total itemCount={itemCount} total={total} clearCart={clearCart} />
-                        </>
-                }
-            </>
+                        </div>
+                        <Total itemCount={itemCount} total={total} clearCart={clearCart} />
+                    </>
+            }
         </Layout>
     )
 }

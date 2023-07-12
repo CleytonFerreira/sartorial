@@ -39,18 +39,18 @@ const CartItem = (props) => {
             </div>
         </div>
     )
-}
+};
 
 CartItem.propTypes = {
-    title: PropTypes.string, 
-    imageUrl: PropTypes.string, 
-    price: PropTypes.number, 
-    quantity: PropTypes.number, 
-    id: PropTypes.number, 
-    description: PropTypes.string, 
-    increase: PropTypes.func, 
-    decrease: PropTypes.func, 
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    price: PropTypes.number,
+    quantity: PropTypes.number,
+    id: PropTypes.number,
+    description: PropTypes.string,
+    increase: PropTypes.func,
+    decrease: PropTypes.func,
     removeProduct: PropTypes.func
-}
+};
 
 export default CartItem;
