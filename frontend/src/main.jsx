@@ -5,13 +5,20 @@ import './index.css';
 import ProductsContextProvider from './context/ProductsContext.jsx'
 import CartContextProvider from './context/CartContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePublishableKey = String(import.meta.env.REACT_APP_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(stripePublishableKey);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ProductsContextProvider>
         <CartContextProvider>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </CartContextProvider>
       </ProductsContextProvider>
     </BrowserRouter>
