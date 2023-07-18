@@ -4,6 +4,7 @@ import ShopPage from './pages/ShopPage';
 import SingleProduct from './pages/SingleProductPage';
 import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/loja" element={<ShopPage />} />
       <Route path="/loja/produto/:id" element={<SingleProduct />} />
       <Route path="/carrinho" element={<CartPage />} />
+      <Route path="/pedido" element={<CheckoutPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
