@@ -4,10 +4,10 @@ import Layout from "../../components/shared/Layout";
 import FeaturedProduct from "../../components/shared/FeaturedProduct";
 
 const ShopPage = () => {
-    const { products } = useContext(ProductsContext)
+    const { products } = useContext(ProductsContext);
     const allProducts = products.map(product => (
         <FeaturedProduct {...product} key={product.id} />
-    ))
+    ));
 
     return (
         <Layout>
@@ -18,7 +18,7 @@ const ShopPage = () => {
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export default ShopPage;

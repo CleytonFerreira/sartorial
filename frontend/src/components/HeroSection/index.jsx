@@ -6,7 +6,7 @@ const HeroSection = () => {
             <h1>Título</h1>
             <button className="cta">CALL TO ACTION</button>
         </section>
-    )
+    );
 };
 
 export default HeroSection;

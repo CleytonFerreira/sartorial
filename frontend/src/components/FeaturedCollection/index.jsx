@@ -6,7 +6,7 @@ const FeaturedCollection = () => {
     const { products } = useContext(ProductsContext);
     const productItems = products.filter((product, i) => i < 4).map(product => (
         <FeaturedProduct {...product} key={product.id} />
-    ))
+    ));
 
     return (
         <div className="featured-collection container">
@@ -15,7 +15,7 @@ const FeaturedCollection = () => {
                 {productItems}
             </div>
         </div>
-    )
+    );
 };
 
 export default FeaturedCollection;

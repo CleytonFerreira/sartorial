@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const FeaturedProduct = (props) => {
-    const { title, imageUrl, price, id, description } = props
-    const product = { title, imageUrl, price, id, description }
-    const { addProduct, cartItems, increase } = useContext(CartContext)
-    const itemInCart = isInCart(product, cartItems)
+    const { title, imageUrl, price, id, description } = props;
+    const product = { title, imageUrl, price, id, description };
+    const { addProduct, cartItems, increase } = useContext(CartContext);
+    const itemInCart = isInCart(product, cartItems);
 
     return (
         <div className="featured_product">
@@ -30,7 +30,7 @@ const FeaturedProduct = (props) => {
                 }
             </div>
         </div>
-    )
+    );
 };
 
 FeaturedProduct.propTypes = {

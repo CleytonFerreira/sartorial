@@ -6,8 +6,8 @@ import Total from '../../components/Cart/Total';
 // import cartPageStyle from './CartPage.module.css';
 
 const CartPage = () => {
-    const { cartItems, itemCount, total, increase, decrease, removeProduct, clearCart } = useContext(CartContext)
-    const funcs = { increase, decrease, removeProduct }
+    const { cartItems, itemCount, total, increase, decrease, removeProduct, clearCart } = useContext(CartContext);
+    const funcs = { increase, decrease, removeProduct };
 
     return (
         <Layout>
@@ -27,7 +27,7 @@ const CartPage = () => {
                     </>
             }
         </Layout>
-    )
-}
+    );
+};
 
-export default CartPage
+export default CartPage;

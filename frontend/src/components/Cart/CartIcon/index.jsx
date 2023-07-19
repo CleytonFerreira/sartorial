@@ -5,12 +5,12 @@ import cartIconStyle from './CartIcon.module.css';
 import cartImg from '../../../assets/icons/cart_img.svg';
 
 const CartIcon = () => {
-    const { itemCount } = useContext(CartContext)
-    const [cartState, setCartState] = useState(itemCount)
+    const { itemCount } = useContext(CartContext);
+    const [cartState, setCartState] = useState(itemCount);
 
     useEffect(() => {
-        setCartState(itemCount)
-    }, [itemCount])
+        setCartState(itemCount);
+    }, [itemCount]);
 
     return (
         <div className={cartIconStyle.cart_icon}>
@@ -21,7 +21,7 @@ const CartIcon = () => {
                 itemCount > 0 ? <span>{cartState}</span> : null
             }
         </div>
-    )
+    );
 };
 
 export default CartIcon;

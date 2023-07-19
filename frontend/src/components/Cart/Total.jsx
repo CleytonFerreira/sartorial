@@ -13,7 +13,7 @@ const Total = ({ itemCount, total, clearCart }) => {
                 <button onClick={() => clearCart()}>ESVAZIAR CARRINHO</button>
             </div>
         </div>
-    )
+    );
 };
 
 Total.propTypes = {

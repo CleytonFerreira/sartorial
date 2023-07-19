@@ -5,13 +5,13 @@ import SHOP_DATA from '../shop';
 const ProductsContext = createContext();
 
 const ProductsContextProvider = ({ children }) => {
-    const [products] = useState(SHOP_DATA)
+    const [products] = useState(SHOP_DATA);
 
     return (
         <ProductsContext.Provider value={{ products }}>
             {children}
         </ProductsContext.Provider>
-    )
+    );
 };
 
 ProductsContextProvider.propTypes = {

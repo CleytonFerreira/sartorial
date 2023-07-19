@@ -1,7 +1,7 @@
-import HeroSection from "../../components/HeroSection";
-import MainSection from "../../components/MainSection";
-import FeaturedCollection from "../../components/FeaturedCollection";
-import Layout from "../../components/shared/Layout";
+import HeroSection from '../../components/HeroSection';
+import MainSection from '../../components/MainSection';
+import FeaturedCollection from '../../components/FeaturedCollection';
+import Layout from '../../components/shared/Layout';
 
 const HomePage = () => {
     return (
@@ -10,7 +10,7 @@ const HomePage = () => {
             <MainSection />
             <FeaturedCollection />
         </Layout>
-    )
-}
+    );
+};
 
 export default HomePage;

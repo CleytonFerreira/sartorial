@@ -16,7 +16,7 @@ function App() {
       <Route path="/pedido" element={<CheckoutPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
 export default App;

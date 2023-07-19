@@ -4,8 +4,8 @@ import minusIcon from '../../assets/icons/minus_icon.svg';
 import trashIcon from '../../assets/icons/trash_icon.svg';
 
 const CartItem = (props) => {
-    const { title, imageUrl, price, quantity, id, description, increase, decrease, removeProduct } = props
-    const product = { title, imageUrl, price, quantity, id, description }
+    const { title, imageUrl, price, quantity, id, description, increase, decrease, removeProduct } = props;
+    const product = { title, imageUrl, price, quantity, id, description };
 
     return (
         <div className="cart_item">
@@ -38,7 +38,7 @@ const CartItem = (props) => {
                 }
             </div>
         </div>
-    )
+    );
 };
 
 CartItem.propTypes = {

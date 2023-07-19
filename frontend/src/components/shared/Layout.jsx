@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
             {children}
             <Footer />
         </>
-    )
+    );
 };
 
 Layout.propTypes = {

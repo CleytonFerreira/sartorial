@@ -14,7 +14,7 @@ const Header = () => {
             </ul>
             <CartIcon />
         </nav>
-    )
+    );
 };
 
 export default Header;

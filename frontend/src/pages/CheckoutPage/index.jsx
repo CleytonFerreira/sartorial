@@ -14,7 +14,7 @@ const CheckoutPage = () => {
                 <h4>{`Valor a ser pago: R$${total}`}</h4>
             </div>
         </Layout>
-    )
+    );
 };
 
 export default CheckoutPage;
