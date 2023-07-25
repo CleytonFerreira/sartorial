@@ -14,7 +14,7 @@ const CartItem = (props) => {
             </div>
             <div className="name_price">
                 <h4>{title}</h4>
-                <p>{price} R$</p>
+                <p>R${price}</p>
             </div>
             <div className="quantity">
                 <p>{`Quantidade: ${quantity}`}</p>

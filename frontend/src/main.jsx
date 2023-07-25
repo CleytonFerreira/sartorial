@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePublishableKey = String(import.meta.env.REACT_APP_PUBLISHABLE_KEY);
+const stripePublishableKey = String(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 const stripePromise = loadStripe(stripePublishableKey);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

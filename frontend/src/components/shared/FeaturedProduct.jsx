@@ -19,7 +19,7 @@ const FeaturedProduct = (props) => {
             </Link>
             <div className="name-price">
                 <h3>{title}</h3>
-                <p>{price}R$</p>
+                <p>R${price}</p>
                 {
                     !itemInCart &&
                     <button onClick={() => addProduct(product)}>ADICIONAR AO CARRINHO</button>

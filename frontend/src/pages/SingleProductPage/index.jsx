@@ -32,7 +32,7 @@ const SingleProduct = () => {
         <Layout>
             <img src={imageUrl} alt={product.title} />
             <h3>{title}</h3>
-            <p>{price}</p>
+            <p>R${price}</p>
 
             {!itemInCart && (
                 <button onClick={() => addProduct(product)}>

@@ -13,8 +13,8 @@ const StripeCheckout = () => {
             return {
                 quantity: item.quantity,
                 price_data: {
-                    currency: 'usd',
-                    unit_amount: item.price * 100, //amount em cents
+                    currency: 'brl',
+                    unit_amount: item.price * 100,
                     product_data: {
                         name: item.title,
                         description: item.description,
@@ -48,8 +48,10 @@ const StripeCheckout = () => {
                     value={email}
                 />
             </div>
-            <div type="submit">
-                Finalizar pedido
+            <div>
+                <button type="submit">
+                    Finalizar pedido
+                </button>
             </div>
         </form>
     );
