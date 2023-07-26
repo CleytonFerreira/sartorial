@@ -5,6 +5,8 @@ import SingleProduct from './pages/SingleProductPage';
 import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
 import CheckoutPage from './pages/CheckoutPage';
+import Success from './components/StripeCheckout/Success';
+import Canceled from './components/StripeCheckout/Canceled';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Route path="/loja/produto/:id" element={<SingleProduct />} />
       <Route path="/carrinho" element={<CartPage />} />
       <Route path="/pedido" element={<CheckoutPage />} />
+      <Route path="/success" element={<Success />} />
+      <Route path="/canceled" element={<Canceled />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
