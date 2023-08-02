@@ -124,12 +124,12 @@ const CustomCheckout = ({ shipping, cartItems }) => {
 };
 
 CustomCheckout.propTypes = {
-    shipping: PropTypes.object({
+    shipping: PropTypes.shape({
         name: PropTypes.string,
         address: PropTypes.string,
         email: PropTypes.string,
     }),
-    cartItems: PropTypes.arrayOf(PropTypes.object({
+    cartItems: PropTypes.arrayOf(PropTypes.shape({
         price: PropTypes.number,
         quantity: PropTypes.number,
     })),
