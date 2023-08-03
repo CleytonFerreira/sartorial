@@ -8,6 +8,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import Success from './components/StripeCheckout/Success';
 import Canceled from './components/StripeCheckout/Canceled';
 import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/success" element={<Success />} />
       <Route path="/canceled" element={<Canceled />} />
       <Route path="/cadastro" element={<SignUp />} />
+      <Route path="/login" element={<SignIn />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
