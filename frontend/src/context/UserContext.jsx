@@ -1,45 +1,52 @@
-import { useEffect, useState, createContext } from 'react';
-import { auth, createUserProfileDocument } from '../firebase';
+// UserContext.jsx
+import { createContext, useEffect, useState } from 'react';
+import { auth, createUserProfileDocument } from '../firebase'; // Update this with the correct path to your firebase/index.js file
 import PropTypes from 'prop-types';
 
-export const UserContext = createContext();
 
-const UserContextProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+// Create a new context
+const UserContext = createContext();
 
-    useEffect(() => {
-        const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-            if (userAuth) {
-                const userRef = await createUserProfileDocument(userAuth);
+// Custom hook to use the context easily in any component
+// export function useUserContext() {
+//   return useContext(UserContext);
+// }
 
-                userRef.onSnapshot(snapShot => {
-                    setUser({
-                        id: snapShot.id,
-                        ...snapShot.data()
-                    });
-                    setLoading(false)
-                })
-            } else {
-                setUser(userAuth);
-                setLoading(false);
-            }
+// Context provider component
+export function UserContextProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Firebase's auth.onAuthStateChanged() method returns an unsubscribe function, so we can use it to clean up the event listener when the component unmounts
+    const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        // User is signed in
+        await createUserProfileDocument(userAuth);
+        setCurrentUser({
+          id: userAuth.uid,
+          ...userAuth, // Include userAuth data in currentUser directly
         });
+      } else {
+        // User is signed out
+        setCurrentUser(null);
+      }
+      setIsLoading(false);
+    });
 
-        return () => unsubscribeFromAuth();
-    }, []);
+    // Clean up the event listener when the component unmounts
+    return () => unsubscribe();
+  }, []);
 
-    const userContext = { user, loading };
-  if (loading) { return <div>Loading...</div> }
-    return (
-        <UserContext.Provider value={userContext}>
-            {children}
-        </UserContext.Provider>
-    );
-};
+  return (
+    <UserContext.Provider value={{ currentUser, isLoading }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
 
 UserContextProvider.propTypes = {
-    children: PropTypes.node
-}
+  children: PropTypes.node
+};
 
 export default UserContextProvider;

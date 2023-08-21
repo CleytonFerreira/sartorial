@@ -1,36 +1,42 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import dotenv from 'dotenv';
+dotenv.config({path: './.env'})
 
 const config = {
-  apiKey: "AIzaSyAKCisNJibcPmbjOFfKHxGqCqTeuQfFpnI",
-  authDomain: "sartorial-c91b8.firebaseapp.com",
-  projectId: "sartorial-c91b8",
-  storageBucket: "sartorial-c91b8.appspot.com",
-  messagingSenderId: "953913770772",
-  appId: "1:953913770772:web:0ff6d8861eec464800b801"
+  apiKey: import.meta.env.VITE_APP_API_KEY,
+  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_APP_ID
 };
 
-firebase.initializeApp(config);
-const firestore = firebase.firestore();
-const auth = firebase.auth();
+const firebaseApp = initializeApp(config);
+const firestore = getFirestore(firebaseApp);
+const auth = getAuth(firebaseApp);
 
 const createUserProfileDocument = async (userAuth, additionalData) => {
-  if (!userAuth) { return; }
-  const userRef = firestore.doc(`users/${userAuth.multiFactor.user.uid}`);
-  const snapShot = await userRef.get();
-
-  if (!snapShot.exists) {
-    const { displayName, email } = userAuth;
-    const createdAt = new Date();
-
-    try {
-      await userRef.set({ displayName, email, createdAt, ...additionalData, });
-    } catch (error) {
-      console.log('Erro na criação de usuário', error.message);
-    }
+  if (!userAuth) {
+    return null;
   }
-  
+
+  const userRef = doc(firestore, `users/${userAuth.uid}`);
+
+  try {
+    const snapShot = await getDoc(userRef);
+
+    if (!snapShot.exists()) {
+      const { displayName, email } = userAuth;
+      const createdAt = new Date();
+
+      await setDoc(userRef, { displayName, email, createdAt, ...additionalData });
+    }
+  } catch (error) {
+    console.log('Error creating user', error.message);
+  }
+
   return userRef;
 };
 
