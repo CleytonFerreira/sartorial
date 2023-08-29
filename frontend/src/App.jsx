@@ -5,24 +5,24 @@ import SingleProduct from './pages/SingleProductPage';
 import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
 import CheckoutPage from './pages/CheckoutPage';
-import Success from './components/StripeCheckout/Success';
-import Canceled from './components/StripeCheckout/Canceled';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+import OrderSuccess from './pages/OrderSuccess';
+import OrderCancel from './pages/OrderCancel';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<HomePage />} />
-      <Route path="/loja" element={<ShopPage />} />
-      <Route path="/loja/produto/:id" element={<SingleProduct />} />
-      <Route path="/carrinho" element={<CartPage />} />
-      <Route path="/pedido" element={<CheckoutPage />} />
-      <Route path="/success" element={<Success />} />
-      <Route path="/canceled" element={<Canceled />} />
-      <Route path="/cadastro" element={<SignUp />} />
-      <Route path="/login" element={<SignIn />} />
-      <Route path="*" element={<NotFound />} />
+      <Route exact path='/' element={<HomePage />} />
+      <Route path='/loja' element={<ShopPage />} />
+      <Route path='/loja/produto/:id' element={<SingleProduct />} />
+      <Route path='/carrinho' element={<CartPage />} />
+      <Route path='/pedido' element={<CheckoutPage />} />
+      <Route path='/success' element={<OrderSuccess />} />
+      <Route path='/canceled' element={<OrderCancel />} />
+      <Route path='/cadastro' element={<SignUp />} />
+      <Route path='/login' element={<SignIn />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   );
 }

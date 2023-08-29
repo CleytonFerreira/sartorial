@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../shared/Layout';
+import Layout from '../../components/shared/Layout';
 import { CartContext } from '../../context/CartContext';
 
 const Success = () => {
@@ -20,7 +20,7 @@ const Success = () => {
                 <h1>Obrigado pela sua compra 🙂</h1>
                 <p>Estamos processando seu pedido e em breve lhe enviaremos um e-mail de confirmação.</p>
                 <div>
-                    <button onClick={() => navigate("/loja")}>Continuar comprando</button>
+                    <button onClick={() => navigate('/loja')}>Continuar comprando</button>
                 </div>
             </div>
         </Layout>

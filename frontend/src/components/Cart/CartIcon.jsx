@@ -13,8 +13,8 @@ const CartIcon = () => {
 
     return (
         <div>
-            <Link to="/carrinho">
-                <img src={cartImg} alt="carrinho" />
+            <Link to='/carrinho'>
+                <img src={cartImg} alt='carrinho' />
             </Link>
             {
                 itemCount > 0 ? <span>{cartState}</span> : null

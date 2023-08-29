@@ -42,14 +42,14 @@ const StripeCheckout = () => {
         <form onSubmit={handleGuestCheckout}>
             <div>
                 <input
-                    type="email"
+                    type='email'
                     onChange={e => setEmail(e.target.value)}
-                    placeholder="Digite seu e-mail"
+                    placeholder='Digite seu e-mail'
                     value={email}
                 />
             </div>
             <div>
-                <button type="submit">
+                <button type='submit'>
                     Finalizar pedido
                 </button>
             </div>

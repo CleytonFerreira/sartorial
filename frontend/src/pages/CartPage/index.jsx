@@ -14,10 +14,10 @@ const CartPage = () => {
             <h1>Carrinho</h1>
             {
                 cartItems.length === 0 ?
-                    <div className="empty_cart">Seu carrinho está vazio</div> :
+                    <div className='empty_cart'>Seu carrinho está vazio</div> :
                     <>
-                        <div className="cart_page">
-                            <div className="cart_item_container">
+                        <div className='cart_page'>
+                            <div className='cart_item_container'>
                                 {
                                     cartItems.map(item => <CartItem {...item} key={item.id} {...funcs} />)
                                 }

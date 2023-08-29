@@ -36,38 +36,38 @@ const ShippingAddress = ({ setShipping }) => {
                             <form onSubmit={handleSubmit}>
                                 <div>
                                     <input
-                                        type="text"
-                                        name="name"
+                                        type='text'
+                                        name='name'
                                         onChange={handleChange}
                                         value={values.name}
-                                        className={name ? "error" : ""}
-                                        placeholder="Nome"
+                                        className={name ? 'error' : ''}
+                                        placeholder='Nome'
                                     />
                                 </div>
 
                                 <div>
                                     <input
-                                        type="email"
-                                        name="email"
+                                        type='email'
+                                        name='email'
                                         onChange={handleChange}
                                         value={values.email}
-                                        className={email ? "error" : ""}
-                                        placeholder="E-mail"
+                                        className={email ? 'error' : ''}
+                                        placeholder='E-mail'
                                     />
                                 </div>
 
                                 <div>
                                     <input
-                                        type="text"
-                                        name="address"
+                                        type='text'
+                                        name='address'
                                         onChange={handleChange}
                                         value={values.address}
-                                        className={address ? "error" : ""}
-                                        placeholder="Endereço"
+                                        className={address ? 'error' : ''}
+                                        placeholder='Endereço'
                                     />
                                 </div>
                                 <div>
-                                    <button type="submit">
+                                    <button type='submit'>
                                         CONTINUAR
                                     </button>
                                 </div>

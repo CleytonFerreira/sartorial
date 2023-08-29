@@ -46,7 +46,7 @@ const SingleProduct = () => {
                 </button>
             )}
 
-            <button onClick={() => navigate("/pedido")}>IR PARA O CHECKOUT </button>
+            <button onClick={() => navigate('/pedido')}>IR PARA O CHECKOUT </button>
             <p>{description}</p>
         </Layout>
     );

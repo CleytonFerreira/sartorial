@@ -11,13 +11,13 @@ const FeaturedProduct = (props) => {
     const itemInCart = isInCart(product, cartItems);
 
     return (
-        <div className="featured_product">
+        <div className='featured_product'>
             <Link to={`/loja/produto/${product.id}`}>
-                <div className="featured-image">
-                    <img src={imageUrl} alt="produto" />
+                <div className='featured-image'>
+                    <img src={imageUrl} alt='produto' />
                 </div>
             </Link>
-            <div className="name-price">
+            <div className='name-price'>
                 <h3>{title}</h3>
                 <p>R${price}</p>
                 {

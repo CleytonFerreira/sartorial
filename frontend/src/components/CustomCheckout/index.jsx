@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { fetchFromAPI } from "../../helpers";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { fetchFromAPI } from '../../helpers';
 import PropTypes from 'prop-types';
 
 const CustomCheckout = ({ shipping, cartItems }) => {
@@ -24,7 +24,7 @@ const CustomCheckout = ({ shipping, cartItems }) => {
                         line1: shipping.address
                     }
                 },
-                description: "Payment intent para sartorial",
+                description: 'Payment intent para sartorial',
                 receipt_email: shipping.email
             };
 
@@ -64,17 +64,17 @@ const CustomCheckout = ({ shipping, cartItems }) => {
     const cardStyle = {
         style: {
             base: {
-                color: "#000",
+                color: '#000',
                 fontFamily: 'Roboto, sans-serif',
-                fontSmoothing: "antialiased",
-                fontSize: "16px",
-                "::placeholder": {
-                    color: "#606060",
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#606060',
                 },
             },
             invalid: {
-                color: "#fa755a",
-                iconColor: "#fa755a"
+                color: '#fa755a',
+                iconColor: '#fa755a'
             }
         }
     };
@@ -83,27 +83,27 @@ const CustomCheckout = ({ shipping, cartItems }) => {
         <div>
             <h4>Adicionar informações de pagamento</h4>
 
-            <div className="stripe-card">
+            <div className='stripe-card'>
                 <CardNumberElement
-                    className="card-element"
+                    className='card-element'
                     options={cardStyle}
                     onChange={cardHandleChange}
 
                 />
             </div>
 
-            <div className="stripe-card">
+            <div className='stripe-card'>
                 <CardExpiryElement
-                    className="card-element"
+                    className='card-element'
                     options={cardStyle}
                     onChange={cardHandleChange}
 
                 />
             </div>
 
-            <div className="stripe-card">
+            <div className='stripe-card'>
                 <CardCvcElement
-                    className="card-element"
+                    className='card-element'
                     options={cardStyle}
                     onChange={cardHandleChange}
 

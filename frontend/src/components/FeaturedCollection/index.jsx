@@ -9,9 +9,9 @@ const FeaturedCollection = () => {
     ));
 
     return (
-        <div className="featured-collection container">
-            <h2 className="featured-section-title">Coleção em destaque</h2>
-            <div className="products">
+        <div className='featured-collection container'>
+            <h2 className='featured-section-title'>Coleção em destaque</h2>
+            <div className='products'>
                 {productItems}
             </div>
         </div>
