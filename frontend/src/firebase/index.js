@@ -1,8 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
-const firebaseConfig  = {
+const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_PROJECT_ID,
@@ -11,28 +11,25 @@ const firebaseConfig  = {
   appId: import.meta.env.VITE_APP_ID
 };
 
-const firebaseApp = initializeApp(firebaseConfig );
-const firestore = getFirestore(firebaseApp);
-const auth = getAuth(firebaseApp);
+firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
+const auth = firebase.auth();
 
 const createUserProfileDocument = async (userAuth, additionalData) => {
-  if (!userAuth) {
-    return null;
-  }
+  if (!userAuth) { return; }
 
-  const userRef = doc(firestore, `users/${userAuth.uid}`);
+  const userRef = firestore.doc(`users/${userAuth.multiFactor.user.uid}`);
+  const snapShot = await userRef.get();
 
-  try {
-    const snapShot = await getDoc(userRef);
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
 
-    if (!snapShot.exists()) {
-      const { displayName, email } = userAuth;
-      const createdAt = new Date();
-
-      await setDoc(userRef, { displayName, email, createdAt, ...additionalData });
+    try {
+      await userRef.set({ displayName, email, createdAt, ...additionalData, });
+    } catch (error) {
+      console.log('error creating user', error.message);
     }
-  } catch (error) {
-    console.log('Error creating user', error.message);
   }
 
   return userRef;
