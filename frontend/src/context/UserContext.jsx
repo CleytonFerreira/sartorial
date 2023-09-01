@@ -1,11 +1,35 @@
-import { createContext } from 'react';
+import { useState, useEffect, createContext } from 'react';
+import { auth, createUserProfileDocument } from '../firebase';
 import PropTypes from 'prop-types';
 
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const userContext = console.log("teste");
+  useEffect(() => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          setUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          });
+          setLoading(false);
+        });
+      } else {
+        setUser(userAuth);
+        setLoading(false);
+      }
+    });
+    
+    return () => unsubscribeFromAuth();
+  }, []);
+
+  const userContext = { user, loading };
 
   return (
     <UserContext.Provider value={userContext}>
