@@ -1,11 +1,30 @@
-import Layout from '../../components/shared/Layout';
+import { useState } from 'react';
 import { Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase';
+import Layout from '../../components/shared/Layout';
 import formStyle from '../SignUp/SignUp.module.css';
 
 const SignIn = () => {
+  const [error, setError] = useState(null);
+  let navigate = useNavigate();
+
   const initialValues = {
     email: '',
     password: ''
+  };
+
+  const handleSignIn = async (values, { setSubmitting }) => {
+    const { email, password } = values;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setSubmitting(false);
+      navigate('/loja');
+    } catch (error) {
+      console.log(error);
+      setSubmitting(false);
+      setError(error);
+    }
   };
 
   return (
@@ -15,9 +34,7 @@ const SignIn = () => {
         <div>
           <Formik
             initialValues={initialValues}
-            onSubmit={(values) => {
-              console.log(values);
-            }}
+            onSubmit={handleSignIn}
           >
             {
               ({ values, errors, handleChange, handleSubmit, isSubmitting }) => {
@@ -55,6 +72,12 @@ const SignIn = () => {
                         Entrar
                       </button>
                     </div>
+
+                    <div>
+											{
+												error && <p className={formStyle.error_message}>{error.message}</p>
+											}
+										</div>
                   </form>
                 );
               }
