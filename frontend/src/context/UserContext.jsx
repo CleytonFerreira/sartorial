@@ -25,11 +25,12 @@ const UserContextProvider = ({ children }) => {
         setLoading(false);
       }
     });
-    
+
     return () => unsubscribeFromAuth();
   }, []);
 
   const userContext = { user, loading };
+  if (loading) { return <div>Carregando...</div> }
 
   return (
     <UserContext.Provider value={userContext}>
