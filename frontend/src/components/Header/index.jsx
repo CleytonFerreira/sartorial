@@ -6,7 +6,7 @@ import { auth } from '../../firebase';
 import { UserContext } from '../../context/UserContext';
 
 const Header = () => {
-    const { user } = useContext(UserContext)
+    const { user } = useContext(UserContext);
     console.log('Usuário: ', user);
 
     return (

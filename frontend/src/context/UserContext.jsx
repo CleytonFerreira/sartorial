@@ -30,7 +30,11 @@ const UserContextProvider = ({ children }) => {
   }, []);
 
   const userContext = { user, loading };
-  if (loading) { return <div>Carregando...</div> }
+  if (loading) {
+    return (
+      <div>Carregando...</div>
+    );
+  }
 
   return (
     <UserContext.Provider value={userContext}>
