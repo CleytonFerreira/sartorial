@@ -10,7 +10,7 @@ async function createCustomer(userId) {
         email,
         metadata: {
             firebaseUID: userId
-        }   
+        }
     });
 
     await userSnapshot.ref.update({ stripeCustomerId: customer.id });
